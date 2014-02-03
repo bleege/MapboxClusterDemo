@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "MapBox.h"
 
 @interface ViewController ()
 
@@ -18,6 +19,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    RMMapboxSource *tileSource = [[RMMapboxSource alloc] initWithMapID:@"examples.map-z2effxa8"];
+    
+    RMMapView *mapView = [[RMMapView alloc] initWithFrame:self.view.bounds andTilesource:tileSource];
+    
+    //mapView.delegate = self;
+    
+    [self.view addSubview:mapView];
 }
 
 - (void)didReceiveMemoryWarning
